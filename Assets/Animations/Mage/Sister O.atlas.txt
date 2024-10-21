@@ -1,0 +1,12 @@
+Sister O.png
+size:2048,2048
+filter:Linear,Linear
+pma:true
+Backarm
+bounds:2,850,826,846
+Backhand
+bounds:2,2,826,846
+Frontarm
+bounds:830,850,826,846
+Torso
+bounds:830,2,826,846
