@@ -5,10 +5,11 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public float speed = 2f;
-    public float attackDistance = 1f;
+    public float attackDistance = 20f;
     public float health = 100f;
     public Transform pointA;
     public Transform pointB;
+    public Transform Player;
 
     private Rigidbody2D rb;
     private EnemyState currentState;
@@ -28,7 +29,7 @@ public class EnemyController : MonoBehaviour
         currentState.Update();
 
         // Change to collision detection.
-        if (Vector2.Distance(transform.position, Player.Instance.transform.position) < attackDistance)
+        if (Vector2.Distance(transform.position, Player.transform.position) < attackDistance)
         {
             SwitchState(new AttackState(this));
         }
