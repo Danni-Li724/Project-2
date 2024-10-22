@@ -50,8 +50,13 @@ namespace Spine {
 			this.skeletonData = skeletonData;
 		}
 
-		/// <summary>Sets a mix duration by animation names.</summary>
-		public void SetMix (string fromName, string toName, float duration) {
+        public object FindAnimation(string animationName)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>Sets a mix duration by animation names.</summary>
+        public void SetMix (string fromName, string toName, float duration) {
 			Animation from = skeletonData.FindAnimation(fromName);
 			if (from == null) throw new ArgumentException("Animation not found: " + fromName, "fromName");
 			Animation to = skeletonData.FindAnimation(toName);

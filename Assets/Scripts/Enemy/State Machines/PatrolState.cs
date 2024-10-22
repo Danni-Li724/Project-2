@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PatrolState : EnemyState
 {
+    private float patrolSpeed;
+    private Vector2 pointA;
+    private Vector2 pointB;
+    private bool movingToB;
     public PatrolState(EnemyController controller) : base(controller) { }
 
     public override void Enter()

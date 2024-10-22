@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Spine;
+using Spine.Unity;
 
 public class EnemyController : MonoBehaviour
 {
     //public float speed = 2f;
     public float attackDistance = 3f;
-    public bool attacking;
+    public bool inAgroRange;
+    public float animationDuration;
     public float health;
     public float stunDuration;
     public float patrolSpeed = 8f;
@@ -38,6 +41,11 @@ public class EnemyController : MonoBehaviour
         if (Vector2.Distance(transform.position, Player.transform.position) < attackDistance)
         {
             SwitchState(new AttackState(this));
+            inAgroRange = true;
+        }
+        else
+        {
+            inAgroRange = false;
         }
     }
 
@@ -47,6 +55,7 @@ public class EnemyController : MonoBehaviour
         currentState = newState;
         currentState.Enter();
     }
+
 
     public void TakeDamage(float amount)
     {
@@ -75,9 +84,33 @@ public class EnemyController : MonoBehaviour
 
         return Vector2.zero;
     }
+    public void PlayAttackAnimation()
+    {
+        // Play your attack animation using Spine
+        skeletonAnimation.AnimationState.SetAnimation(0, "Attack", false);
+    }
 
+    public IEnumerator PauseBeforeNextAttack()
+    {
+        yield return new WaitForSeconds(1f);
+        SwitchState(new AttackState(this));
+    }
+    private void CheckHealth()
+    {
+        if (currentHealth <= 0)
+        {
+            PlayDeathAnimation();
+        }
+    }
     public void PlayAnimation(string animationName)
     {
         skeletonAnimation.AnimationState.SetAnimation(0, animationName, true);
+    }
+
+    private void PlayDeathAnimation()
+    {
+        // Play death animation
+        skeletonAnimation.AnimationState.SetAnimation(0, "Death", false);
+        Destroy(gameObject, 2f); // Wait for the animation to finish
     }
 }
