@@ -8,8 +8,9 @@ public class AttackState : EnemyState
 
     public override void Enter()
     {
-        enemyController.PlayAnimation("Attack"); 
+        enemyController.PlayAnimation("Attack");
     }
+}
 
     public override void Update()
     {

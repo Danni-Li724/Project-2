@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour
     private Rigidbody2D rb;
     private EnemyState currentState;
     private float currentHealth;
-    private Spine.Unity.SkeletonAnimation skeletonAnimation;
+    public Spine.Unity.SkeletonAnimation skeletonAnimation;
 
     private void Start()
     {
