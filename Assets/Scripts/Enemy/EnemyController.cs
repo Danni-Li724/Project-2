@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public float speed = 2f;
-    public float attackDistance = 20f;
-    public float health = 100f;
+    //public float speed = 2f;
+    public float attackDistance = 3f;
+    public bool attacking;
+    public float health;
+    public float stunDuration;
+    public float patrolSpeed = 8f;
     public Transform pointA;
     public Transform pointB;
     public Transform Player;
+    public GameObject player;
 
-    private Rigidbody2D rb;
-    private EnemyState currentState;
-    private float currentHealth;
+    public Rigidbody2D rb;
+    public EnemyState currentState;
+    public float currentHealth;
     public Spine.Unity.SkeletonAnimation skeletonAnimation;
 
     private void Start()
@@ -21,14 +25,16 @@ public class EnemyController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         skeletonAnimation = GetComponent<Spine.Unity.SkeletonAnimation>();
         currentHealth = health;
-        SwitchState(new IdleState(this));
+        SwitchState(new PatrolState(this));
+        patrolSpeed = 6f;
+        Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
     }
 
     private void Update()
     {
         currentState.Update();
 
-        // Change to collision detection.
+        // Change to collision detection?
         if (Vector2.Distance(transform.position, Player.transform.position) < attackDistance)
         {
             SwitchState(new AttackState(this));
@@ -53,7 +59,7 @@ public class EnemyController : MonoBehaviour
 
     public void Move(Vector2 direction)
     {
-        rb.MovePosition(rb.position + direction * speed * Time.deltaTime);
+        rb.MovePosition(rb.position + direction * patrolSpeed * Time.deltaTime);
     }
 
     public Vector2 GetNextPatrolDirection()

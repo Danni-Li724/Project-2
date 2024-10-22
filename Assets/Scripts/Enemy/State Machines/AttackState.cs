@@ -10,13 +10,26 @@ public class AttackState : EnemyState
     {
         enemyController.PlayAnimation("Attack");
     }
-}
+
 
     public override void Update()
-    {
-        // Implement attack logic (deal damage)
+    { 
+        enemyController.rb.velocity = Vector2.zero;
+        enemyController.attacking = true;
+
+        // attack logic (deal damage)
         // check if the attack animation finished to return to patrol
+        //var currentTrackEntry = enemyController.skeletonAnimation.AnimationState.GetCurrent(0);
+        //if (currentTrackEntry == null)
+       // {
+        //    enemyController.SwitchState(new PatrolState(enemyController));
+        //}
+        //enemyController.SwitchState(new PatrolState(enemyController));
+
     }
 
-    public override void Exit() { /* Handle exiting attack state */ }
+    public override void Exit() 
+    {
+        Debug.Log("One attack administered");
+    }
 }

@@ -17,5 +17,7 @@ public class PatrolState : EnemyState
         enemyController.Move(direction);
     }
 
-    public override void Exit() { /* Handle exiting patrol state */ }
+    public override void Exit() 
+    { 
+    }
 }

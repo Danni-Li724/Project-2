@@ -634,7 +634,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 15
+  orthographic size: 20
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -659,7 +659,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 94.05, y: -9.5, z: -10}
+  m_LocalPosition: {x: 85.8, y: -9.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -843,6 +843,7 @@ GameObject:
   - component: {fileID: 605130522}
   - component: {fileID: 605130527}
   - component: {fileID: 605130526}
+  - component: {fileID: 605130528}
   m_Layer: 7
   m_Name: EarSpider
   m_TagString: Untagged
@@ -891,7 +892,7 @@ MonoBehaviour:
   updateTiming: 1
   unscaledTime: 0
   _animationName: Patrol
-  loop: 1
+  loop: 0
   timeScale: 1
 --- !u!23 &605130523
 MeshRenderer:
@@ -1020,6 +1021,30 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &605130528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605130521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2e07262265c0db4eb72bd8475569fde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDistance: 10
+  attacking: 0
+  health: 0
+  stunDuration: 0
+  patrolSpeed: 8
+  pointA: {fileID: 2035999402}
+  pointB: {fileID: 2083366074}
+  Player: {fileID: 584800177}
+  player: {fileID: 584800174}
+  rb: {fileID: 0}
+  currentHealth: 0
+  skeletonAnimation: {fileID: 605130522}
 --- !u!1 &615646963
 GameObject:
   m_ObjectHideFlags: 0
@@ -1615,6 +1640,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1138089963}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!1 &2035999401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2035999402}
+  m_Layer: 0
+  m_Name: PatrolPointA
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2035999402
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035999401}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 22.72, y: -16.63, z: -0.13149227}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2083366073
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2083366074}
+  m_Layer: 0
+  m_Name: PatrolPointB
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2083366074
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083366073}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 198.8, y: -16.63, z: -0.13149227}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2140670937
 GameObject:
   m_ObjectHideFlags: 0
@@ -1753,3 +1840,5 @@ SceneRoots:
   - {fileID: 95921351}
   - {fileID: 1138089963}
   - {fileID: 584800177}
+  - {fileID: 2035999402}
+  - {fileID: 2083366074}
