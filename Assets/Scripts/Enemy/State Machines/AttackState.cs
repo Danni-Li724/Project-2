@@ -12,12 +12,13 @@ public class AttackState : EnemyState
 
     public override void Enter()
     {
-        spider.SetAnimation(spider.Attack, false, 1f);
+        spider.SetAnimation(spider.Attack, false, 0.6f);
     }
 
     public override void Update()
     {
         spider.TurnToPlayer();
+        spider.CheckHealth();
     }
 
     public override void Exit()

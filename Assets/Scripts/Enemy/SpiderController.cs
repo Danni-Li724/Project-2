@@ -13,14 +13,22 @@ public class SpiderController : MonoBehaviour
     public AnimationReferenceAsset Patrol, Alert, Attack, Death;
     private string currentAnimationPlaying;
 
+    [Header("Vision")]
+    public Transform sensor;
+    public float depth;
+    public float chaseRange;
+    public float attackRange;
+
     //public float speed = 2f;
-    public float attackDistance = 3f;
+    public float attackDistance = 5f;
     public float detectionRange = 6;
     public bool inAgroRange;
     public float animationDuration;
     public float health;
     public float stunDuration;
     public float patrolSpeed;
+    public Vector2 target;
+    public bool isReached;
     public float currentHealth;
     public Transform pointA;
     public Transform pointB;
@@ -33,15 +41,29 @@ public class SpiderController : MonoBehaviour
         skeletonAnimation = GetComponent<SkeletonAnimation>();
         currentHealth = health;
         SwitchState(new PatrolState(this));
-        patrolSpeed = 6f;
+        patrolSpeed = 15f;
         Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
     }
 
-    private void Update()
+    public void Update()
     {
         currentState.Update();
+        target = pointA.position;
+  
+            if (Vector2.Distance(sensor.transform.position, target) <= 2f)
+        {
+            isReached = true;
+            if (target == (Vector2)pointA.position)
+            {
+                target = pointB.position;
+            }
+            else
+            {
+                target = pointA.position;
+            }
+        }
 
-        // Change to collision detection?
+            // check attack
         if (Vector2.Distance(transform.position, Player.transform.position) < attackDistance)
         {
             SwitchState(new AttackState(this));
@@ -52,6 +74,7 @@ public class SpiderController : MonoBehaviour
             SwitchState(new PatrolState(this));
             inAgroRange = false;
         }
+
     }
 
     public void TurnToPlayer()
@@ -67,7 +90,6 @@ public class SpiderController : MonoBehaviour
                 }
                 else if (direction.x < 0)
                 {
-                    // Player is to the left
                     transform.localScale = new Vector2(1, 1);
                 }
             }
@@ -78,15 +100,40 @@ public class SpiderController : MonoBehaviour
         }
     }
 
-    // Spine stuff
+    public void IsPlayerDetected()
+    {
+        Vector3 dirToTarget = (Player.position - transform.position).normalized;
+        float disToTarget = Vector3.Distance(transform.position, Player.position);
+    }
+
+    public void Flip()
+    {
+        if (rb.velocity.x > 0)
+        {
+            transform.localScale = new Vector2(1, 1);
+        }
+        else if (rb.velocity.x < 0)
+        {
+            transform.localScale = new Vector2(-1, 1);
+        }
+    }
+
+    // Spine-Unity runtime code, sets animation and defines animation completion
     public void SetAnimation(AnimationReferenceAsset animation, bool loop, float timescale)
     {
         if (animation.name.Equals(currentAnimationPlaying))
         {
             return;
         }
-        skeletonAnimation.state.SetAnimation(0, animation, loop).TimeScale = timescale;
+        Spine.TrackEntry animationEntry = skeletonAnimation.state.SetAnimation(0, animation, loop);
+        animationEntry.TimeScale = timescale;
+        animationEntry.Complete += AnimationEntry_Complete;
         currentAnimationPlaying = animation.name;
+    }
+
+    private void AnimationEntry_Complete(TrackEntry trackEntry)
+    {
+        // this method returns a state to its previous state when animation finishes. can just use state machine transition instead.
     }
 
     public void SwitchState(EnemyState newState)
@@ -106,11 +153,35 @@ public class SpiderController : MonoBehaviour
         }
     }
 
-    public void Move(Vector2 direction)
+    public void Move()
     {
-        rb.MovePosition(rb.position + direction * patrolSpeed * Time.deltaTime);
+        Vector2 direction = (target - rb.position).normalized;
+        rb.velocity = new Vector2(direction.x * patrolSpeed, rb.velocity.y);
+        if (Vector2.Distance(rb.position, target) < 0.1f)
+        {
+            if (target == (Vector2)pointA.position)
+            {
+                target = pointB.position;
+            }
+            else
+            {
+                target = pointA.position;
+            }
+            FlipTarget();
+        }
     }
 
+    public void FlipTarget()
+    {
+        if ((Vector2)sensor.position == (Vector2)pointB.position)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+    }
     public Vector2 GetNextPatrolDirection()
     {
         if (Vector2.Distance(transform.position, pointA.position) < 0.1f)
@@ -134,9 +205,9 @@ public class SpiderController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         SwitchState(new AttackState(this));
     }*/
-    private void CheckHealth()
+    public void CheckHealth()
     {
-        if (currentHealth <= 0)
+        if (Input.GetKeyDown(KeyCode.E)/*currentHealth <= 0*/)
         {
             PlayDeathAnimation();
         }
@@ -156,8 +227,8 @@ public class SpiderController : MonoBehaviour
 
     private void PlayDeathAnimation()
     {
-        // Play death animation
-        skeletonAnimation.AnimationState.SetAnimation(0, "Death", false);
-        Destroy(gameObject, 2f); // Wait for the animation to finish
+       skeletonAnimation.AnimationState.SetAnimation(0, "Death", false);
+        Destroy(gameObject, 2f);
+        // Wait for the animation to finish
     }
 }
