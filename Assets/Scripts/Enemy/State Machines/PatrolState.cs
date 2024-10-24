@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PatrolState : EnemyState
 {
-    public PatrolState(EnemyController controller) : base(controller) { }
+    public PatrolState(SpiderController controller) : base(controller) { }
 
     public override void Enter()
     {
-        enemyController.SetAnimation(enemyController.Patrol, true, 1f);
+        spider.SetAnimation(spider.Patrol, true, 1f);
     }
 
     public override void Update()

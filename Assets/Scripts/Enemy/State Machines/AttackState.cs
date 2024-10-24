@@ -8,16 +8,16 @@ public class AttackState : EnemyState
     private float attackCooldown = 1f;
     private float attackDuration = 2f;
     private float attackTimer = 0f;
-    public AttackState(EnemyController controller) : base(controller) { }
+    public AttackState(SpiderController controller) : base(controller) { }
 
     public override void Enter()
     {
-        enemyController.SetAnimation(enemyController.Attack, false, 1f);
+        spider.SetAnimation(spider.Attack, false, 1f);
     }
 
     public override void Update()
     {
-        enemyController.TurnToPlayer();
+        spider.TurnToPlayer();
     }
 
     public override void Exit()

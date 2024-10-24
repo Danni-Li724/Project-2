@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DeathState : EnemyState
 {
-    public DeathState(EnemyController controller) : base(controller) { }
+    public DeathState(SpiderController controller) : base(controller) { }
 
     public override void Enter()
     {

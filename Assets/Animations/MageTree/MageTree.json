@@ -1,0 +1,402 @@
+{
+"skeleton": { "hash": "CfRwdZyqb2o", "spine": "4.2.36", "x": -658.64, "y": -85.81, "width": 1115.38, "height": 1755.15 },
+"bones": [
+	{ "name": "root", "x": -447.37, "y": 1586.37 },
+	{ "name": "bodyBone", "parent": "root", "length": 1469.08, "rotation": 89.84, "x": 430.94, "y": -1543.62 },
+	{ "name": "Darm1", "parent": "bodyBone", "length": 187.65, "rotation": 102.85, "x": 733.06, "y": 149.22 },
+	{ "name": "Darm2", "parent": "bodyBone", "length": 188.94, "rotation": -112.32, "x": 570.01, "y": -158.1 },
+	{ "name": "Darm3", "parent": "bodyBone", "length": 189.94, "rotation": 75.89, "x": 375.71, "y": 171.31 },
+	{ "name": "Darm4", "parent": "bodyBone", "length": 176.9, "rotation": -80.49, "x": 229.5, "y": -146.46 },
+	{ "name": "head", "parent": "bodyBone", "length": 205.78, "rotation": 179.56, "x": 1496.51, "y": 13.05 },
+	{ "name": "frontArm", "parent": "bodyBone", "length": 194.98, "rotation": -186.73, "x": 1205.01, "y": -18.84 },
+	{ "name": "backArm", "parent": "bodyBone", "length": 194.63, "rotation": 158.14, "x": 1181.78, "y": 25.83 },
+	{ "name": "backHand", "parent": "backArm", "length": 220.87, "rotation": -15.25, "x": 149.36, "y": 3.02 }
+],
+"slots": [
+	{ "name": "Backarm", "bone": "backArm", "attachment": "Backarm" },
+	{ "name": "Backhand", "bone": "backHand", "attachment": "Backhand" },
+	{ "name": "Deadarm1", "bone": "Darm1", "attachment": "Deadarm1" },
+	{ "name": "Deadarm2", "bone": "Darm2", "attachment": "Deadarm2" },
+	{ "name": "Deadarm3", "bone": "Darm3", "attachment": "Deadarm3" },
+	{ "name": "Deadarm4", "bone": "Darm4", "attachment": "Deadarm4" },
+	{ "name": "Torso", "bone": "bodyBone", "attachment": "Torso" },
+	{ "name": "HeadCover", "bone": "head", "attachment": "HeadCover" },
+	{ "name": "Frontarm", "bone": "frontArm", "attachment": "Frontarm" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"Backarm": {
+				"Backarm": { "x": 399.52, "y": 167.34, "rotation": 111.66, "width": 816, "height": 1633 }
+			},
+			"Backhand": {
+				"Backhand": { "x": 228.39, "y": 188.39, "rotation": 118.15, "width": 816, "height": 1633 }
+			},
+			"Deadarm1": {
+				"Deadarm1": { "x": -117.2, "y": 38.28, "rotation": 164.41, "width": 816, "height": 1633 }
+			},
+			"Deadarm2": {
+				"Deadarm2": { "x": -234.28, "y": 63.19, "rotation": 25.71, "width": 816, "height": 1633 }
+			},
+			"Deadarm3": {
+				"Deadarm3": { "x": 15.24, "y": -380.81, "rotation": -155.14, "width": 816, "height": 1633 }
+			},
+			"Deadarm4": {
+				"Deadarm4": { "x": -85.68, "y": 520.54, "rotation": -9.57, "width": 816, "height": 1633 }
+			},
+			"Frontarm": {
+				"Frontarm": { "x": 476.4, "y": -50.45, "rotation": 89.49, "width": 816, "height": 1633 }
+			},
+			"HeadCover": {
+				"HeadCover": { "x": 767.71, "y": 36.4, "rotation": 93.85, "width": 816, "height": 1633 }
+			},
+			"Torso": {
+				"Torso": { "x": 728.05, "y": 26.03, "rotation": -89.84, "width": 816, "height": 1633 }
+			}
+		}
+	}
+],
+"animations": {
+	"Attack": {
+		"bones": {
+			"Darm1": {
+				"rotate": [
+					{ "value": -3.92 },
+					{ "time": 0.6667, "value": 3.85 },
+					{ "time": 1.3333, "value": 2.41 },
+					{ "time": 2, "value": -2.33 },
+					{ "time": 2.6667, "value": 3.85 },
+					{ "time": 3.3333, "value": -3.92 },
+					{ "time": 4, "value": 2.41 },
+					{ "time": 4.6667, "value": -2.33 },
+					{ "time": 5.3333, "value": -3.92 }
+				]
+			},
+			"Darm2": {
+				"rotate": [
+					{ "value": 2.13 },
+					{ "time": 0.6667, "value": 10.06 },
+					{ "time": 1.3333, "value": 12.39 },
+					{ "time": 2, "value": 18.37 },
+					{ "time": 2.6667, "value": 10.06 },
+					{ "time": 3.3333, "value": 2.13 },
+					{ "time": 4, "value": 12.39 },
+					{ "time": 4.6667, "value": 18.37 },
+					{ "time": 5.3333, "value": 2.13 }
+				]
+			},
+			"Darm3": {
+				"rotate": [
+					{ "value": 3.2 },
+					{ "time": 0.6667, "value": 11.49 },
+					{ "time": 1.3333, "value": 20.48 },
+					{ "time": 2, "value": 27.77 },
+					{ "time": 2.6667, "value": 11.49 },
+					{ "time": 3.3333, "value": 3.2 },
+					{ "time": 4, "value": 20.48 },
+					{ "time": 4.6667, "value": 27.77 },
+					{ "time": 5.3333, "value": 3.2 }
+				]
+			},
+			"Darm4": {
+				"rotate": [
+					{ "value": -8.21 },
+					{ "time": 0.6667, "value": -17.56 },
+					{ "time": 1.3333, "value": -6.69 },
+					{ "time": 2, "value": -11.98 },
+					{ "time": 2.6667, "value": -17.56 },
+					{ "time": 3.3333, "value": -8.21 },
+					{ "time": 4, "value": -6.69 },
+					{ "time": 4.6667, "value": -11.98 },
+					{ "time": 5.3333, "value": -8.21 }
+				]
+			},
+			"frontArm": {
+				"rotate": [
+					{ "value": 4.88 },
+					{ "time": 1.3333, "value": 9.31 },
+					{ "time": 2.6667, "value": 4.67 },
+					{ "time": 4, "value": 9.71 },
+					{ "time": 5.3333, "value": 7.25 }
+				]
+			},
+			"head": {
+				"rotate": [
+					{ "value": -3.59 },
+					{ "time": 1, "value": -2.2 },
+					{ "time": 2.3333, "value": -4.83 },
+					{ "time": 3.6667, "value": -2.16 },
+					{ "time": 5.3333, "value": -4.53 }
+				]
+			},
+			"backArm": {
+				"rotate": [
+					{ "value": 4.87 },
+					{ "time": 0.5333, "value": -9.66 },
+					{ "time": 0.9667, "value": -35.52 },
+					{ "time": 1.1333, "value": -79.83 },
+					{ "time": 1.3333, "value": -95.1 }
+				]
+			},
+			"backHand": {
+				"rotate": [
+					{ "time": 0.5333, "value": -0.38 },
+					{ "time": 0.9667, "value": -1.2 },
+					{ "time": 1.1333, "value": -1.47 },
+					{ "time": 1.3333, "value": -3.85 },
+					{ "time": 1.4667, "value": -5.5 },
+					{ "time": 1.8333, "value": 0.42 },
+					{ "time": 2.3333, "value": -0.35 },
+					{ "time": 2.5667, "value": 3.26 },
+					{ "time": 2.8333, "value": 0.78 },
+					{ "time": 3.5, "value": 2.91 },
+					{ "time": 4, "value": -0.91 },
+					{ "time": 4.3333, "value": 2.91 },
+					{ "time": 4.7667, "value": -0.35 },
+					{ "time": 5.2, "value": 3.26 }
+				]
+			}
+		}
+	},
+	"Death": {
+		"bones": {
+			"Darm1": {
+				"rotate": [
+					{ "value": 3.85 },
+					{ "time": 0.5, "value": 2.41 }
+				],
+				"translate": [
+					{ "time": 0.2667, "x": -104.94, "y": 71.74 },
+					{ "time": 0.5, "x": -709.02, "y": 71.74 }
+				]
+			},
+			"Darm2": {
+				"rotate": [
+					{ "value": 10.06 },
+					{ "time": 0.5, "value": 12.39 }
+				],
+				"translate": [
+					{ "time": 0.2667, "x": -137.51, "y": -80.73 },
+					{ "time": 0.5, "x": -571.84, "y": -80.73 }
+				]
+			},
+			"Darm3": {
+				"rotate": [
+					{ "value": 11.49 },
+					{ "time": 0.5, "value": 20.48 }
+				],
+				"translate": [
+					{ "time": 0.2667, "x": -164.59, "y": 44.84 },
+					{ "time": 0.5, "x": -398.72, "y": 44.84 }
+				]
+			},
+			"Darm4": {
+				"rotate": [
+					{ "value": -17.56 },
+					{ "time": 0.5, "value": -6.69 }
+				],
+				"translate": [
+					{ "time": 0.2667, "x": -113.53, "y": -35.9 },
+					{ "time": 0.5, "x": -262.85, "y": -35.9 }
+				]
+			},
+			"head": {
+				"rotate": [
+					{ "value": -1.7 },
+					{ "time": 0.2, "value": -31.94 },
+					{ "time": 0.2333, "value": -61.94 },
+					{ "time": 0.5, "value": -86.9 }
+				],
+				"translate": [
+					{ "time": 0.0333, "x": -132.17 },
+					{ "time": 0.1, "x": -341.04 },
+					{ "time": 0.1333, "x": -676.39, "y": -34.13 },
+					{ "time": 0.2, "x": -939.15, "y": -34.13 },
+					{ "time": 0.2333, "x": -1085.09, "y": -34.13 },
+					{ "time": 0.2667, "x": -1228.34, "y": -71.66 },
+					{ "time": 0.3, "x": -1311.57, "y": -86.67 },
+					{ "time": 0.3333, "x": -1369.77, "y": -101.68 },
+					{ "time": 0.5, "x": -1521.74, "y": -109.19 }
+				]
+			},
+			"backArm": {
+				"rotate": [
+					{ "value": 4.87 },
+					{ "time": 0.0667, "value": -8.76 },
+					{ "time": 0.2, "value": -26.18 },
+					{ "time": 0.5, "value": -56.7 },
+					{ "time": 0.6667, "value": -59.8 }
+				],
+				"translate": [
+					{ "time": 0.0667, "x": -37.6, "y": 13.65 },
+					{ "time": 0.1, "x": -173.16, "y": 61.07 },
+					{ "time": 0.1667, "x": -378.23, "y": 75.76 },
+					{ "time": 0.2, "x": -604.41, "y": 110.02 },
+					{ "time": 0.2667, "x": -754.13, "y": 134.5 },
+					{ "time": 0.3, "x": -910.27, "y": 134.5 },
+					{ "time": 0.3333, "x": -1060.31, "y": 134.5 },
+					{ "time": 0.5, "x": -1175.52, "y": 134.5 },
+					{ "time": 0.6667, "x": -1202.33, "y": 134.5 }
+				]
+			}
+		}
+	},
+	"EndAttack": {
+		"bones": {
+			"Darm1": {
+				"rotate": [
+					{ "value": -3.92 },
+					{ "time": 0.6667, "value": 3.85 },
+					{ "time": 1.3333, "value": 2.41 }
+				]
+			},
+			"Darm2": {
+				"rotate": [
+					{ "value": 2.13 },
+					{ "time": 0.6667, "value": 10.06 },
+					{ "time": 1.3333, "value": 12.39 }
+				]
+			},
+			"Darm3": {
+				"rotate": [
+					{ "value": 3.2 },
+					{ "time": 0.6667, "value": 11.49 },
+					{ "time": 1.3333, "value": 20.48 }
+				]
+			},
+			"Darm4": {
+				"rotate": [
+					{ "value": -8.21 },
+					{ "time": 0.6667, "value": -17.56 },
+					{ "time": 1.3333, "value": -6.69 }
+				]
+			},
+			"frontArm": {
+				"rotate": [
+					{ "value": 4.88 },
+					{ "time": 1.3333, "value": 9.31 }
+				]
+			},
+			"head": {
+				"rotate": [
+					{ "value": -3.59 },
+					{ "time": 1, "value": -2.2 }
+				]
+			},
+			"backArm": {
+				"rotate": [
+					{ "value": -95.1 },
+					{ "time": 0.2333, "value": -97.4 },
+					{ "time": 0.3667, "value": -79.83 },
+					{ "time": 0.4, "value": -35.52 },
+					{ "time": 0.4333, "value": -28.96 },
+					{ "time": 0.4667, "value": -28.5 },
+					{ "time": 0.5667, "value": -9.66 },
+					{ "time": 0.6667, "value": 4.87 }
+				]
+			},
+			"backHand": {
+				"rotate": [
+					{ "value": -3.85 },
+					{ "time": 0.2333, "value": -10.75 },
+					{ "time": 0.3667, "value": -1.47 },
+					{ "time": 0.4, "value": -1.2 },
+					{ "time": 0.4333, "value": -2.98 },
+					{ "time": 0.4667, "value": -8.09 },
+					{ "time": 0.5667, "value": -0.38 }
+				]
+			}
+		}
+	},
+	"Idle": {
+		"bones": {
+			"Darm1": {
+				"rotate": [
+					{ "value": -3.92 },
+					{ "time": 0.6667, "value": 3.85 },
+					{ "time": 1.3333, "value": 2.41 },
+					{ "time": 2, "value": -2.33 },
+					{ "time": 2.6667, "value": 3.85 },
+					{ "time": 3.3333, "value": -3.92 },
+					{ "time": 4, "value": 2.41 },
+					{ "time": 4.6667, "value": -2.33 },
+					{ "time": 5.3333, "value": -3.92 }
+				]
+			},
+			"Darm2": {
+				"rotate": [
+					{ "value": 2.13 },
+					{ "time": 0.6667, "value": 10.06 },
+					{ "time": 1.3333, "value": 12.39 },
+					{ "time": 2, "value": 18.37 },
+					{ "time": 2.6667, "value": 10.06 },
+					{ "time": 3.3333, "value": 2.13 },
+					{ "time": 4, "value": 12.39 },
+					{ "time": 4.6667, "value": 18.37 },
+					{ "time": 5.3333, "value": 2.13 }
+				]
+			},
+			"Darm3": {
+				"rotate": [
+					{ "value": 3.2 },
+					{ "time": 0.6667, "value": 11.49 },
+					{ "time": 1.3333, "value": 20.48 },
+					{ "time": 2, "value": 27.77 },
+					{ "time": 2.6667, "value": 11.49 },
+					{ "time": 3.3333, "value": 3.2 },
+					{ "time": 4, "value": 20.48 },
+					{ "time": 4.6667, "value": 27.77 },
+					{ "time": 5.3333, "value": 3.2 }
+				]
+			},
+			"Darm4": {
+				"rotate": [
+					{ "value": -8.21 },
+					{ "time": 0.6667, "value": -17.56 },
+					{ "time": 1.3333, "value": -6.69 },
+					{ "time": 2, "value": -11.98 },
+					{ "time": 2.6667, "value": -17.56 },
+					{ "time": 3.3333, "value": -8.21 },
+					{ "time": 4, "value": -6.69 },
+					{ "time": 4.6667, "value": -11.98 },
+					{ "time": 5.3333, "value": -8.21 }
+				]
+			},
+			"frontArm": {
+				"rotate": [
+					{ "value": 4.88 },
+					{ "time": 1.3333, "value": 9.31 },
+					{ "time": 2.6667, "value": 4.67 },
+					{ "time": 4, "value": 9.71 },
+					{ "time": 5.3333, "value": 4.88 }
+				]
+			},
+			"head": {
+				"rotate": [
+					{ "value": -3.59 },
+					{ "time": 1, "value": -2.2 },
+					{ "time": 2.3333, "value": -4.83 },
+					{ "time": 3.6667, "value": -2.16 },
+					{ "time": 5.3333, "value": -3.59 }
+				]
+			},
+			"backArm": {
+				"rotate": [
+					{ "value": 7.41 },
+					{ "time": 1.3333, "value": 5.25 },
+					{ "time": 2.6667, "value": 7.14 },
+					{ "time": 4, "value": 5.49 },
+					{ "time": 5.3333, "value": 7.41 }
+				]
+			},
+			"backHand": {
+				"rotate": [
+					{ "time": 2.6667, "value": 0.42 },
+					{ "time": 4, "value": -0.35 }
+				]
+			}
+		}
+	}
+}
+}

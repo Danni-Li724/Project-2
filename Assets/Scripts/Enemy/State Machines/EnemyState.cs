@@ -4,11 +4,11 @@ using UnityEngine;
 
 public abstract class EnemyState
 {
-    protected EnemyController enemyController;
+    protected SpiderController spider;
 
-    protected EnemyState(EnemyController controller)
+    protected EnemyState(SpiderController controller)
     {
-        enemyController = controller;
+        spider = controller;
     }
 
     public abstract void Enter();

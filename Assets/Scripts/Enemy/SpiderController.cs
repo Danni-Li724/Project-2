@@ -4,7 +4,7 @@ using UnityEngine;
 using Spine;
 using Spine.Unity;
 
-public class EnemyController : MonoBehaviour
+public class SpiderController : MonoBehaviour
 {
     [Header("References")]
     public Rigidbody2D rb;
